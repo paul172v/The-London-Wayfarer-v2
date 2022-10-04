@@ -12,6 +12,12 @@
   background-size: cover;
 }
 
+@media only screen and (max-width: 1250px) {
+  .section-hero {
+    background-image: url("/public/img/hero-mobile.jpg");
+  }
+}
+
 /*---- Desktop Header ----*/
 
 .desktop-header {
@@ -22,10 +28,31 @@
   background-color: #f2994a;
 }
 
+@media only screen and (max-width: 1250px) {
+  .desktop-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 12rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .desktop-header {
+    display: none;
+  }
+}
+
 .desktop-logo--wrapper {
   display: flex;
   align-items: center;
   margin-left: 4rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .desktop-logo--wrapper {
+    margin-left: 0;
+  }
 }
 
 .desktop-logo--icon {
@@ -42,6 +69,12 @@
   display: flex;
   align-items: center;
   margin-right: 4rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .desktop-nav--wrapper {
+    margin-right: 0;
+  }
 }
 
 .desktop-nav--ul {
@@ -68,7 +101,87 @@
   color: black;
 }
 
+/*---- Mobile Header ----*/
+.mobile-header {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+  width: 100vw;
+  background-color: #f2994a;
+}
+
+@media only screen and (max-width: 550px) {
+  .mobile-header {
+    display: flex;
+  }
+}
+
+.mobile-logo--wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.mobile-logo--icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.mobile-logo--heading {
+  font-size: 1.5rem;
+  font-family: "Salsa", cursive;
+}
+
+/*---- Mobile Nav Button ----*/
+.mobile-nav-button--wrapper {
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  z-index: 9999;
+  display: none;
+}
+
+@media only screen and (max-width: 550px) {
+  .mobile-nav-button--wrapper {
+    display: inline;
+  }
+}
+
+.mobile-nav-button {
+  font-size: 4rem;
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2rem;
+  transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -o-transition: color 0.3s;
+}
+
+.mobile-nav-button:hover,
+.mobile-nav-button:active {
+  color: black;
+}
+
 /*---- Utility Classes ----*/
+.u--hero-description--position {
+  position: absolute;
+  top: 10rem;
+  right: 4rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .u--hero-description--position {
+    top: 15rem;
+    right: 4rem;
+  }
+}
+
 .u--hero-testimonial--position {
   position: absolute;
   bottom: 4rem;
@@ -79,6 +192,86 @@
   position: absolute;
   top: 85vh;
   left: 48vw;
+}
+
+@media only screen and (max-width: 1250px) {
+  .u--hero-book-now-btn--position {
+    left: 40vw;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .u--hero-testimonial--position {
+    display: none;
+  }
+}
+
+/*------------------------------*/
+/*---- Section Description------*/
+/*------------------------------*/
+
+.section-description {
+  width: 100vw;
+  background-color: #333333;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 750px) {
+  .section-description {
+    display: flex;
+  }
+}
+
+.description-text {
+  color: #f2994a;
+  font-size: 2.4rem;
+  margin: 4rem 0;
+  width: 50rem;
+}
+
+@media only screen and (max-width: 450px) {
+  .description-text {
+    width: 35rem;
+  }
+}
+
+/*------------------------------*/
+/*---- Section Testimonials 1 ------*/
+/*------------------------------*/
+.section-testimonials-1 {
+  width: 100vw;
+  background-color: #333333;
+  display: none;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 1500px) {
+  .section-testimonials-1 {
+    display: flex;
+  }
+}
+
+.testimonials-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4rem 0;
+}
+
+@media only screen and (max-width: 1250px) {
+  .testimonials-row {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .testimonials-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /*----------------------*/
@@ -127,6 +320,12 @@
   -o-border-radius: 4px;
 }
 
+@media only screen and (max-width: 1250px) {
+  .dorms-img {
+    height: 60rem;
+  }
+}
+
 .dorms-text-wrapper {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -167,6 +366,12 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 40rem 40rem 40rem 40rem;
   gap: 8rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .facilities-grid-wrapper {
+    grid-template-rows: 30rem 30rem 30rem 30rem;
+  }
 }
 
 /* -------- Text Wrapper 1 -------- */
@@ -253,13 +458,6 @@
   background-color: #333333;
   display: flex;
   flex-direction: column;
-}
-
-.testimonials-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 4rem 0;
 }
 
 .testimonials-btn-wrapper {

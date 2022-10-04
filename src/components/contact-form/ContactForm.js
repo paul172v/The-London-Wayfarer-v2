@@ -5,7 +5,7 @@ import classes from "./ContactForm.module.css";
 const ContactForm = () => {
   return (
     <form className={classes["form-wrapper"]}>
-      <label className={classes["form-label"]} for="inputName">
+      <label className={classes["form-label"]} htmlFor="inputName">
         Name:{" "}
       </label>
       <input
@@ -14,7 +14,7 @@ const ContactForm = () => {
         id="inputName"
         name="inputName"
       ></input>
-      <label className={classes["form-label"]} for="inputEmail">
+      <label className={classes["form-label"]} htmlFor="inputEmail">
         Email:{" "}
       </label>
       <input
@@ -23,7 +23,7 @@ const ContactForm = () => {
         id="inputEmail"
         name="inputEmail"
       ></input>
-      <label className={classes["form-label"]} for="inputMessage">
+      <label className={classes["form-label"]} htmlFor="inputMessage">
         Message:{" "}
       </label>
       <textarea

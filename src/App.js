@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GiFootprint } from "react-icons/gi";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 
 import classes from "./App.module.css";
@@ -49,11 +50,32 @@ function App() {
           </div>
         </header>
 
+        {/* -------- Mobile Header -------- */}
+        <header className={classes["mobile-header"]}>
+          {/* ---- Logo Wrapper ---- */}
+          <div className={classes["mobile-logo--wrapper"]}>
+            <i className={classes["mobile-logo--icon"]}>
+              <GiFootprint />
+            </i>
+            <h1 className={classes["mobile-logo--heading"]}>
+              The London Wayfarer Hostel
+            </h1>
+          </div>
+        </header>
+
+        <div className={classes["mobile-nav-button--wrapper"]}>
+          <button className={classes["mobile-nav-button"]}>
+            <AiOutlineMenu />
+          </button>
+        </div>
+
         {/* -------- Desktop Hero Rating Box -------- */}
         <DesktopHeroRatingBox />
 
         {/* -------- Desktop Hero Description Box -------- */}
-        <DesktopHeroDescriptionBox />
+        <div className={classes["u--hero-description--position"]}>
+          <DesktopHeroDescriptionBox />
+        </div>
 
         {/* -------- Desktop Hero Testimonial Boxes -------- */}
         {heroTestimonialState === 1 && (
@@ -94,6 +116,43 @@ function App() {
 
         <div className={classes["u--hero-book-now-btn--position"]}>
           <ButtonBookNow />
+        </div>
+      </section>
+
+      {/* ------------------------ */}
+      {/* -- Description Section -- */}
+      {/* ------------------------ */}
+      <section className={classes["section-description"]}>
+        <p className={classes["description-text"]}>
+          We offer affordable, fun, safe accommodation for young backpackers and
+          students, right along the River Thames.
+        </p>
+      </section>
+
+      {/* ------------------------ */}
+      {/* -- Testimonials 1 Section -- */}
+      {/* ------------------------ */}
+
+      <section className={classes["section-testimonials-1"]}>
+        <div className={classes["testimonials-row"]}>
+          <TestimonialNoArrow
+            imgSource="/img/testimonial-hero-1.jpg"
+            review="Really great hostel that puts you right in the center of the sights, next to the train, buses, all of it. Solid bunk rooms though there’s a lot of stairs to get to them and they could use curtains, great private rooms if you book early enough to snag one at a nice price. Kitchen / community wasn't as strong but the staff rocks, the place is in the right spot, it's fantastic. "
+            reviewer1="Victoria Gauld,"
+            reviewer2="Backpacker"
+          />
+          <TestimonialNoArrow
+            imgSource="/img/testimonial-hero-2.jpg"
+            review="The building itself is fantastic, a massive spiral staircase that leads quite nice dorms rooms. Bathrooms are clean with good showers. The staff are absolutely lovely, when I asked if I could extend they apologized profusely as they were fully booked and kept me updated in case anyone cancelled last minute. Towels are cheap to rent too. When I go back to London I am definitely staying again! "
+            reviewer1="Kayleigh Parks,"
+            reviewer2="Backpacker"
+          />
+          <TestimonialNoArrow
+            imgSource="/img/testimonial-hero-3.jpg"
+            review="I stayed here for 3 weeks over a month. The team does a great job of keeping the hostel clean, as the dining areas, kitchen and bathrooms were always spotless. There is a nice dining and chill out area. The kitchen is fully equipped with enough room for refrigerated and frozen items. The beds are comfortable and there are decent sized lockers in the rooms. "
+            reviewer1="Andrew Holden,"
+            reviewer2="Digital Nomad"
+          />
         </div>
       </section>
 

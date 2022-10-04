@@ -1,0 +1,41 @@
+.btn-book-now {
+  height: 6.4rem;
+  width: 16.3rem;
+  font-size: 2.4rem;
+  font-family: "Ruluko", sans-serif;
+  background-color: #f2994a;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+
+.btn-book-now:hover {
+  transform: translateY(-0.3rem);
+  -webkit-transform: translateY(-0.3rem);
+  -moz-transform: translateY(-0.3rem);
+  -ms-transform: translateY(-0.3rem);
+  -o-transform: translateY(-0.3rem);
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+  color: black;
+}
+
+.btn-book-now:active {
+  transform: translateY(0.3rem);
+  -webkit-transform: translateY(0.3rem);
+  -moz-transform: translateY(0.3rem);
+  -ms-transform: translateY(0.3rem);
+  -o-transform: translateY(0.3rem);
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  color: black;
+}

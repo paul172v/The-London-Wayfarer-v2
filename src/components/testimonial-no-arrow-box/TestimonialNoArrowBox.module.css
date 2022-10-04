@@ -1,0 +1,48 @@
+.hero-testimonial--wrapper {
+  width: 40.2rem;
+  height: 16.3rem;
+  background-color: #eb5757c0;
+  padding: 1rem;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 10rem 30.2rem;
+  grid-template-rows: 10rem 3.15rem 3.15rem;
+}
+
+.hero-testimonial--image {
+  width: 90%;
+  margin-top: 0.5rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.hero-testimonial--review {
+  font-size: 1.2rem;
+}
+
+.hero-testimonial--reviewer-top,
+.hero-testimonial--reviewer-bottom {
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: "Salsa", cursive;
+  padding-top: 2rem;
+  margin-left: 60%;
+}
+
+.hero-testimonial--reviewer-top {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.hero-testimonial--reviewer-bottom {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  margin-top: -1.5rem;
+}

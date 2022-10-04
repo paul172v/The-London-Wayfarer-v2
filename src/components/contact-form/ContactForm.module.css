@@ -1,0 +1,28 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-top: 2rem;
+  font-size: 2.4rem;
+}
+
+.form-input-name,
+.form-input-email,
+.form-input-message {
+  width: 25rem;
+  height: 3rem;
+  font-size: 2rem;
+}
+
+.form-input-name {
+}
+
+.form-input-email {
+}
+
+.form-input-message {
+  height: 20rem;
+  font-size: 1.6rem;
+}

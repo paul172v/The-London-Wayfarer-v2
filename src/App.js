@@ -1,5 +1,15 @@
 import React, { useState } from "react";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
 import { GiFootprint } from "react-icons/gi";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 
 import classes from "./App.module.css";
@@ -40,20 +50,96 @@ function App() {
 
           <div className={classes["desktop-nav--wrapper"]}>
             <ul className={classes["desktop-nav--ul"]}>
-              <li className={classes["desktop-nav--li"]}>Dorms</li>
-              <li className={classes["desktop-nav--li"]}>Facilities</li>
-              <li className={classes["desktop-nav--li"]}>Gallery</li>
-              <li className={classes["desktop-nav--li"]}>Location</li>
-              <li className={classes["desktop-nav--li"]}>Contact</li>
+              <li className={classes["desktop-nav--li"]}>
+                <Link
+                  activeClass="active"
+                  to="dorms-anchor"
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={500}
+                >
+                  Dorms
+                </Link>
+              </li>
+              <li className={classes["desktop-nav--li"]}>
+                <Link
+                  activeClass="active"
+                  to="facilities-anchor"
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={500}
+                >
+                  Facilities
+                </Link>
+              </li>
+              <li className={classes["desktop-nav--li"]}>
+                <Link
+                  activeClass="active"
+                  to="gallery-anchor"
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={500}
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li className={classes["desktop-nav--li"]}>
+                <Link
+                  activeClass="active"
+                  to="location-anchor"
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={500}
+                >
+                  Location
+                </Link>
+              </li>
+              <li className={classes["desktop-nav--li"]}>
+                <Link
+                  activeClass="active"
+                  to="contact-anchor"
+                  spy={true}
+                  smooth={true}
+                  offset={-20}
+                  duration={500}
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
         </header>
+
+        {/* -------- Mobile Header -------- */}
+        <header className={classes["mobile-header"]}>
+          {/* ---- Logo Wrapper ---- */}
+          <div className={classes["mobile-logo--wrapper"]}>
+            <i className={classes["mobile-logo--icon"]}>
+              <GiFootprint />
+            </i>
+            <h1 className={classes["mobile-logo--heading"]}>
+              The London Wayfarer Hostel
+            </h1>
+          </div>
+        </header>
+
+        <div className={classes["mobile-nav-button--wrapper"]}>
+          <button className={classes["mobile-nav-button"]}>
+            <AiOutlineMenu />
+          </button>
+        </div>
 
         {/* -------- Desktop Hero Rating Box -------- */}
         <DesktopHeroRatingBox />
 
         {/* -------- Desktop Hero Description Box -------- */}
-        <DesktopHeroDescriptionBox />
+        <div className={classes["u--hero-description--position"]}>
+          <DesktopHeroDescriptionBox />
+        </div>
 
         {/* -------- Desktop Hero Testimonial Boxes -------- */}
         {heroTestimonialState === 1 && (
@@ -97,11 +183,50 @@ function App() {
         </div>
       </section>
 
+      {/* ------------------------ */}
+      {/* -- Description Section -- */}
+      {/* ------------------------ */}
+      <section className={classes["section-description"]}>
+        <p className={classes["description-text"]}>
+          We offer affordable, fun, safe accommodation for young backpackers and
+          students, right along the River Thames.
+        </p>
+      </section>
+
+      {/* ------------------------ */}
+      {/* -- Testimonials 1 Section -- */}
+      {/* ------------------------ */}
+
+      <section className={classes["section-testimonials-1"]}>
+        <div className={classes["testimonials-row"]}>
+          <TestimonialNoArrow
+            imgSource="/img/testimonial-hero-1.jpg"
+            review="Really great hostel that puts you right in the center of the sights, next to the train, buses, all of it. Solid bunk rooms though there’s a lot of stairs to get to them and they could use curtains, great private rooms if you book early enough to snag one at a nice price. Kitchen / community wasn't as strong but the staff rocks, the place is in the right spot, it's fantastic. "
+            reviewer1="Victoria Gauld,"
+            reviewer2="Backpacker"
+          />
+          <TestimonialNoArrow
+            imgSource="/img/testimonial-hero-2.jpg"
+            review="The building itself is fantastic, a massive spiral staircase that leads quite nice dorms rooms. Bathrooms are clean with good showers. The staff are absolutely lovely, when I asked if I could extend they apologized profusely as they were fully booked and kept me updated in case anyone cancelled last minute. Towels are cheap to rent too. When I go back to London I am definitely staying again! "
+            reviewer1="Kayleigh Parks,"
+            reviewer2="Backpacker"
+          />
+          <TestimonialNoArrow
+            imgSource="/img/testimonial-hero-3.jpg"
+            review="I stayed here for 3 weeks over a month. The team does a great job of keeping the hostel clean, as the dining areas, kitchen and bathrooms were always spotless. There is a nice dining and chill out area. The kitchen is fully equipped with enough room for refrigerated and frozen items. The beds are comfortable and there are decent sized lockers in the rooms. "
+            reviewer1="Andrew Holden,"
+            reviewer2="Digital Nomad"
+          />
+        </div>
+      </section>
+
       {/* ---------------- */}
       {/* -- Dorms Section -- */}
       {/* ---------------- */}
       <section className={classes["section-dorms"]}>
-        <h2 className={classes["dorms-heading"]}>Dorms</h2>
+        <Element className={classes["dorms-heading"]} name="dorms-anchor">
+          Dorms
+        </Element>
         {/* -------- Grid Wrapper -------- */}
         <div className={classes["dorms-grid-wrapper"]}>
           {/* ---- Image Wrapper ---- */}
@@ -143,7 +268,12 @@ function App() {
       {/* -- Facilities Section -- */}
       {/* ------------------------ */}
       <section className={classes["section-facilities"]}>
-        <h2 className={classes["facilities-heading"]}>Facilities</h2>
+        <Element
+          className={classes["facilities-heading"]}
+          name="facilities-anchor"
+        >
+          Facilities
+        </Element>
         {/* -------- Grid Wrapper -------- */}
         <div className={classes["facilities-grid-wrapper"]}>
           {/* ---- Text Wrapper 1 ---- */}
@@ -281,7 +411,9 @@ function App() {
       {/* ------------------------ */}
 
       <section className={classes["section-gallery"]}>
-        <h2 className={classes["gallery-heading"]}>Gallery</h2>
+        <Element className={classes["gallery-heading"]} name="gallery-anchor">
+          Gallery
+        </Element>
         <div className={classes["gallery-grid-wrapper"]}>
           <img
             src="/img/thumb/gal1.jpg"
@@ -349,7 +481,9 @@ function App() {
       {/* -- Location Section -- */}
       {/* ------------------------ */}
       <section className={classes["section-location"]}>
-        <h2 className={classes["location-heading"]}>Location</h2>
+        <Element className={classes["location-heading"]} name="location-anchor">
+          Location
+        </Element>
         {/* -------- Grid Wrapper -------- */}
         <div className={classes["location-grid-wrapper"]}>
           {/* -------- Text Wrapper -------- */}
@@ -397,7 +531,9 @@ function App() {
       {/* -- Contact Section -- */}
       {/* ------------------------ */}
       <section className={classes["section-contact"]}>
-        <h2 className={classes["contact-heading"]}>Contact</h2>
+        <Element className={classes["contact-heading"]} name="contact-anchor">
+          Contact
+        </Element>
         <ContactForm />
         <p className={classes["contact-address"]}>The London Wayfarer</p>
         <p className={classes["contact-address"]}>Riverside</p>

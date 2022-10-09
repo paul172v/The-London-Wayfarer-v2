@@ -248,11 +248,12 @@ function App() {
               <ul className={classes["fullscreen-nav--ul"]}>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="dorms-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Dorms
@@ -260,11 +261,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="facilities-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Facilities
@@ -272,11 +274,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="gallery-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Gallery
@@ -284,11 +287,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="location-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Location
@@ -296,11 +300,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="contact-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Contact

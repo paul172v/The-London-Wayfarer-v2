@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
 import classes from "./ContactForm.module.css";
 
 const ContactForm = () => {
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+  const [formError, setFormError] = useState(false);
+  const [formSent, setFormSent] = useState(false);
+
   const formValidationHandler = (e) => {
     e.preventDefault();
+
+    if (
+      nameRef.current.value.length === 0 ||
+      emailRef.current.value.length === 0 ||
+      messageRef.current.value.length === 0
+    ) {
+      setFormError(true);
+      setFormSent(false);
+    } else {
+      setFormError(false);
+      setFormSent(true);
+
+      console.log({
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        message: messageRef.current.value,
+      });
+    }
   };
 
   return (
@@ -13,6 +37,7 @@ const ContactForm = () => {
         Name:{" "}
       </label>
       <input
+        ref={nameRef}
         className={classes["form-input-name"]}
         type="text"
         id="inputName"
@@ -22,6 +47,7 @@ const ContactForm = () => {
         Email:{" "}
       </label>
       <input
+        ref={emailRef}
         className={classes["form-input-email"]}
         type="email"
         id="inputEmail"
@@ -31,6 +57,7 @@ const ContactForm = () => {
         Message:{" "}
       </label>
       <textarea
+        ref={messageRef}
         className={classes["form-input-message"]}
         id="inputMessage"
         name="inputMessage"
@@ -40,6 +67,18 @@ const ContactForm = () => {
         type="submit"
         value="Submit"
       />
+
+      {formSent && (
+        <p className={classes["form-input-message--sent"]}>
+          Form successfully sent!
+        </p>
+      )}
+
+      {formError && (
+        <p className={classes["form-input-message--error"]}>
+          All fields must be completed!
+        </p>
+      )}
     </form>
   );
 };

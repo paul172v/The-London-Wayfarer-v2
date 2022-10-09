@@ -112,6 +112,7 @@
   height: 8rem;
   width: 100vw;
   background-color: #f2994a;
+  z-index: 8000;
 }
 
 @media only screen and (max-width: 550px) {
@@ -466,20 +467,8 @@
 @media only screen and (max-width: 1250px) {
   .facilities-grid-wrapper {
     grid-template-columns: 1fr;
-    grid-template-rows: 30rem 18rem 30rem 22rem 30rem 17rem 30rem 13rem;
-  }
-}
-
-@media only screen and (max-width: 1250px) {
-  .facilities-grid-wrapper {
-    grid-template-columns: 1fr;
-    grid-template-rows: 30rem 14rem 30rem 22rem 30rem 8rem 30rem 8rem;
+    grid-template-rows: 25rem 14rem 25rem 22rem 25rem 8rem 25rem 8rem;
     margin-top: -6rem;
-  }
-}
-
-@media only screen and (max-width: 1250px) {
-  .facilities-grid-wrapper {
     margin-left: 18rem;
   }
 }
@@ -504,7 +493,7 @@
     grid-column: 1/2;
     grid-row: 2/3;
 
-    align-self: center;
+    align-self: flex-start;
     justify-self: flex-start;
   }
 }
@@ -514,12 +503,17 @@
 
 .facilities-li {
   font-size: 2.4rem;
+  width: 90vw;
   margin-top: 4rem;
 }
 
 @media only screen and (max-width: 750px) {
   .facilities-li {
     font-size: 1.4rem;
+  }
+
+  .facilities-li:first-of-type {
+    margin-top: -2rem;
   }
 }
 
@@ -581,6 +575,7 @@
     grid-column: 1/2;
     grid-row: 4/5;
 
+    align-self: flex-start;
     justify-self: flex-start;
   }
 }
@@ -599,6 +594,9 @@
   .facilities-text-wrapper--3 {
     grid-column: 1/2;
     grid-row: 6/7;
+
+    align-self: flex-start;
+    justify-self: flex-start;
   }
 }
 
@@ -621,8 +619,8 @@
   grid-row: 4/5;
   width: 50rem;
 
-  align-self: center;
-  justify-self: center;
+  align-self: flex-start;
+  justify-self: flex-start;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -705,7 +703,7 @@
 
 @media only screen and (max-width: 650px) {
   .gallery-grid-wrapper {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 30vw 30vw;
     grid-template-rows: 10rem 10rem 10rem 10rem 10rem 10rem;
   }
 }
@@ -727,6 +725,7 @@
   -o-border-radius: 4px;
   cursor: pointer;
   opacity: 0.8;
+  z-index: 7000;
 }
 
 .gallery-img:hover {

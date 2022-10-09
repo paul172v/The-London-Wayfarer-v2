@@ -7,6 +7,14 @@
   display: grid;
   grid-template-columns: 10rem 30.2rem;
   grid-template-rows: 10rem 3.15rem 3.15rem;
+  margin: 2rem 0;
+}
+
+@media only screen and (max-width: 1500px) {
+  .hero-testimonial--wrapper {
+    height: 20rem;
+    width: 35rem;
+  }
 }
 
 .hero-testimonial--image {
@@ -27,6 +35,12 @@
   font-size: 1.2rem;
 }
 
+@media only screen and (max-width: 1500px) {
+  .hero-testimonial--review {
+    width: 23rem;
+  }
+}
+
 .hero-testimonial--reviewer-top,
 .hero-testimonial--reviewer-bottom {
   font-size: 1.4rem;
@@ -34,6 +48,14 @@
   font-family: "Salsa", cursive;
   padding-top: 2rem;
   margin-left: 60%;
+}
+
+@media only screen and (max-width: 1500px) {
+  .hero-testimonial--reviewer-top,
+  .hero-testimonial--reviewer-bottom {
+    padding-top: 6rem;
+    margin-left: 45%;
+  }
 }
 
 .hero-testimonial--reviewer-top {

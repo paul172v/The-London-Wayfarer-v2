@@ -8,11 +8,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  position: absolute;
-  top: 10rem;
-  right: 4rem;
 }
 .desktop-hero-description--text {
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .desktop-hero-description--wrapper {
+    width: 25rem;
+    height: 14rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .desktop-hero-description--wrapper {
+    display: none;
+  }
 }

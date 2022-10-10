@@ -10,10 +10,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   overflow-x: hidden;
+  background-color: #333333;
 }
 
 html {
   font-size: 62.5%;
+  background-color: #333333;
 }
 
 @media only screen and (max-width: 500px) {

@@ -58,3 +58,18 @@
   -o-transform: translateY(0.5rem);
   box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
+
+.form-input-message--sent,
+.form-input-message--error {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-input-message--sent {
+  color: rgb(16, 194, 16);
+}
+
+.form-input-message--error {
+  color: red;
+}

@@ -12,6 +12,7 @@ import { GiFootprint } from "react-icons/gi";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
+import { motion, useAnimation } from "framer-motion";
 
 import classes from "./App.module.css";
 
@@ -24,9 +25,95 @@ import ContactForm from "./components/contact-form/ContactForm";
 
 function App() {
   {
-    /* ------ State controlling whether the gallery modal is active ------ */
+    /* --- useAnimation Variables --- */
+  }
+  const dormsAnimate = useAnimation();
+  const facilitiesAnimate = useAnimation();
+  const testimonialsAnimate = useAnimation();
+  const galleryAnimate = useAnimation();
+  const locationAnimate = useAnimation();
+  const contactAnimate = useAnimation();
+
+  {
+    /* --- Animation Handlers --- */
   }
 
+  const dormsAnimateHandler = () => {
+    dormsAnimate.start({
+      opacity: 1,
+      x: 0,
+      transition: { duration: 2.5 },
+    });
+  };
+
+  const facilitiesAnimateHandler = () => {
+    facilitiesAnimate.start({
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.5 },
+    });
+  };
+
+  const testimonialsAnimateHandler = () => {
+    testimonialsAnimate.start({
+      opacity: 1,
+      transition: { duration: 2.5 },
+    });
+  };
+
+  const galleryAnimateHandler = () => {
+    galleryAnimate.start({
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.5 },
+    });
+  };
+
+  const locationAnimateHandler = () => {
+    locationAnimate.start({
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.5 },
+    });
+  };
+
+  const contactAnimateHandler = () => {
+    contactAnimate.start({
+      opacity: 1,
+      transition: { duration: 2.5 },
+    });
+  };
+
+  {
+    /* ------ State controlling whether the social/booking modal is active ------ */
+  }
+  const [socialBookingModalActive, setSocialBookingModalActive] =
+    useState(false);
+
+  const [socialBookingMessage, setSocialBookingMessage] =
+    useState("PlaceHolder");
+
+  const turnOnSocialModalHandler = () => {
+    setSocialBookingMessage(
+      "This button would take you to off site to London Wayfarer's social media."
+    );
+    setSocialBookingModalActive(true);
+  };
+
+  const turnOnBookingModalHandler = () => {
+    setSocialBookingMessage(
+      "This button would take you to off site to a booking website like Hostelworld."
+    );
+    setSocialBookingModalActive(true);
+  };
+
+  const turnOffSocialModalHandler = () => {
+    setSocialBookingModalActive(false);
+  };
+
+  {
+    /* ------ State controlling whether the gallery modal is active ------ */
+  }
   const [galleryModalActive, setGalleryModalActive] = useState(false);
 
   const turnOffGalleryModalHandler = () => {
@@ -133,7 +220,12 @@ function App() {
         {/* ---------------- */}
         {/* -- Hero Section -- */}
         {/* ---------------- */}
-        <section className={classes["section-hero"]}>
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className={classes["section-hero"]}
+        >
           {/* -------------------------------- */}
           {/* -------- Desktop Header -------- */}
           {/* -------------------------------- */}
@@ -248,11 +340,12 @@ function App() {
               <ul className={classes["fullscreen-nav--ul"]}>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="dorms-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Dorms
@@ -260,11 +353,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="facilities-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Facilities
@@ -272,11 +366,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="gallery-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Gallery
@@ -284,11 +379,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="location-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Location
@@ -296,11 +392,12 @@ function App() {
                 </li>
                 <li className={classes["fullscreen-nav--li"]}>
                   <Link
+                    onClick={turnOffFullscreenMenu}
                     activeClass="active"
                     to="contact-anchor"
                     spy={true}
                     smooth={true}
-                    offset={-20}
+                    offset={-80}
                     duration={500}
                   >
                     Contact
@@ -320,7 +417,12 @@ function App() {
 
           {/* -------- Desktop Hero Testimonial Boxes -------- */}
           {heroTestimonialState === 1 && (
-            <div className={classes["u--hero-testimonial--position"]}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2.5 }}
+              className={classes["u--hero-testimonial--position"]}
+            >
               <DesktopHeroTestimonialBox
                 imgSource="/img/testimonial-hero-1.jpg"
                 review="Really great hostel that puts you right in the center of the sights, next to the train, buses, all of it. Solid bunk rooms though there’s a lot of stairs to get to them and they could use curtains, great private rooms if you book early enough to snag one at a nice price. Kitchen / community wasn't as strong but the staff rocks, the place is in the right spot, it's fantastic. "
@@ -328,7 +430,7 @@ function App() {
                 reviewer2="Backpacker"
                 switchTestimonial={switchHeroTestimonialHandler}
               />
-            </div>
+            </motion.div>
           )}
           {heroTestimonialState === 2 && (
             <div className={classes["u--hero-testimonial--position"]}>
@@ -356,9 +458,9 @@ function App() {
           {/* -------- Book Now Button -------- */}
 
           <div className={classes["u--hero-book-now-btn--position"]}>
-            <ButtonBookNow />
+            <ButtonBookNow turnOnModal={turnOnBookingModalHandler} />
           </div>
-        </section>
+        </motion.section>
 
         {/* ------------------------ */}
         {/* -- Description Section -- */}
@@ -400,7 +502,12 @@ function App() {
         {/* ---------------- */}
         {/* -- Dorms Section -- */}
         {/* ---------------- */}
-        <section className={classes["section-dorms"]}>
+        <motion.section
+          initial={{ x: "-100vw", opacity: 0 }}
+          animate={dormsAnimate}
+          whileInView={dormsAnimateHandler}
+          className={classes["section-dorms"]}
+        >
           <Element className={classes["dorms-heading"]} name="dorms-anchor">
             Dorms
           </Element>
@@ -439,12 +546,17 @@ function App() {
               </ul>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ------------------------ */}
         {/* -- Facilities Section -- */}
         {/* ------------------------ */}
-        <section className={classes["section-facilities"]}>
+        <motion.section
+          initial={{ x: 1000, opacity: 0 }}
+          animate={facilitiesAnimate}
+          whileInView={facilitiesAnimateHandler}
+          className={classes["section-facilities"]}
+        >
           <Element
             className={classes["facilities-heading"]}
             name="facilities-anchor"
@@ -550,13 +662,18 @@ function App() {
               </ul>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ------------------------ */}
         {/* -- Testimonials 2 Section -- */}
         {/* ------------------------ */}
 
-        <section className={classes["section-testimonials-2"]}>
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={testimonialsAnimate}
+          whileInView={testimonialsAnimateHandler}
+          className={classes["section-testimonials-2"]}
+        >
           <div className={classes["testimonials-row"]}>
             <TestimonialNoArrow
               imgSource="/img/testimonial-1.jpg"
@@ -579,15 +696,20 @@ function App() {
             />
           </div>
           <div className={classes["testimonials-btn-wrapper"]}>
-            <ButtonBookNow />
+            <ButtonBookNow turnOnModal={turnOnBookingModalHandler} />
           </div>
-        </section>
+        </motion.section>
 
         {/* ------------------------ */}
         {/* -- Gallery Section -- */}
         {/* ------------------------ */}
 
-        <section className={classes["section-gallery"]}>
+        <motion.section
+          initial={{ x: "-100vh", opacity: 0 }}
+          animate={galleryAnimate}
+          whileInView={galleryAnimateHandler}
+          className={classes["section-gallery"]}
+        >
           <Element className={classes["gallery-heading"]} name="gallery-anchor">
             Gallery
           </Element>
@@ -662,12 +784,17 @@ function App() {
               className={`${classes["gallery-img"]} ${classes["gallery-img-10"]}`}
             />
           </div>
-        </section>
+        </motion.section>
 
         {/* ------------------------ */}
         {/* -- Location Section -- */}
         {/* ------------------------ */}
-        <section className={classes["section-location"]}>
+        <motion.section
+          initial={{ x: 1000, opacity: 0 }}
+          animate={locationAnimate}
+          whileInView={locationAnimateHandler}
+          className={classes["section-location"]}
+        >
           <Element
             className={classes["location-heading"]}
             name="location-anchor"
@@ -713,14 +840,19 @@ function App() {
             </div>
           </div>
           <div className={classes["location-btn-wrapper"]}>
-            <ButtonBookNow />
+            <ButtonBookNow turnOnModal={turnOnBookingModalHandler} />
           </div>
-        </section>
+        </motion.section>
 
         {/* ------------------------ */}
         {/* -- Contact Section -- */}
         {/* ------------------------ */}
-        <section className={classes["section-contact"]}>
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={contactAnimate}
+          whileInView={contactAnimateHandler}
+          className={classes["section-contact"]}
+        >
           <Element className={classes["contact-heading"]} name="contact-anchor">
             Contact
           </Element>
@@ -738,7 +870,7 @@ function App() {
           >
             admin@londonwayfarer.co.uk
           </a>
-        </section>
+        </motion.section>
 
         {/* ------------------------ */}
         {/* -- Footer ------------ */}
@@ -751,16 +883,25 @@ function App() {
             </p>
           </div>
           <div className={classes["footer-icon-wrapper"]}>
-            <span className={classes["footer-icon"]}>
+            <span
+              className={classes["footer-icon"]}
+              onClick={turnOnSocialModalHandler}
+            >
               <BsFacebook />
             </span>
-            <span className={classes["footer-icon"]}>
+            <span
+              className={classes["footer-icon"]}
+              onClick={turnOnSocialModalHandler}
+            >
               <BsInstagram />
             </span>
           </div>
         </footer>
       </div>
 
+      {/* ------------------------ */}
+      {/* -- Modal Gallery-------- */}
+      {/* ------------------------ */}
       {galleryModalActive && (
         <React.Fragment>
           <div className={classes["modal-gallery-background"]}></div>
@@ -792,6 +933,28 @@ function App() {
           >
             <AiOutlineClose />
           </button>
+        </React.Fragment>
+      )}
+
+      {/* ------------------------ */}
+      {/* -- Modal Social/Booking  */}
+      {/* ------------------------ */}
+      {socialBookingModalActive && (
+        <React.Fragment>
+          <div className={classes["modal-social-booking--background"]}></div>
+          <div className={classes["modal-social-booking--content-wrapper"]}>
+            <div className={classes["modal-social-booking--content-card"]}>
+              <p className={classes["modal-social-booking--content-text"]}>
+                {socialBookingMessage}
+              </p>
+              <button
+                className={classes["modal-social-booking--content-close-btn"]}
+                onClick={turnOffSocialModalHandler}
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </React.Fragment>
       )}
     </React.Fragment>
